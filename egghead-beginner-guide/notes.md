@@ -17,7 +17,7 @@ rootElement.appendChild(element);
 ```
 
 ### Hello World - React.createElement
-Hello world with React.createElement. The 2nd parameter to createElement is the element props, which simply put are properties that you want on that element.
+The 2nd parameter to createElement is and object containing the element props, which simply put are properties that you want on that element.
 
 The third function parameter in the example below is a special kind of props called "children". These are children properties of the element you are creating.
 
