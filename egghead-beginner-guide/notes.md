@@ -13,7 +13,9 @@ rootElement.appendChild(element);
 ```
 
 ### Hello World - React.createElement
-Hello world writting with React.createElement
+Hello world writting with React.createElement. The 2nd parameter to the createElement are the element props, which simply put are properties that you want on that element.
+
+The third function parameter in the example below are a special kind of props called "children". These are children properties of the element you are creating.
 
 ```javascript
 const rootElement = document.getElementById("root");
@@ -25,10 +27,37 @@ const element = React.createElement(
 ReactDOM.render(element, rootElement);
 ```
 
+The above code could also be composed with the children props inside the object of the 2nd function parameter.
+
+```javascript
+const rootElement = document.getElementById("root");
+const element = React.createElement(
+  'div',
+  {
+    className: 'container',
+    children: 'Hello World',
+  },
+);
+ReactDOM.render(element, rootElement);
+```
+The children prop can be an array of child props.
+
+```javascript
+const rootElement = document.getElementById("root");
+const element = React.createElement(
+  'div',
+  {
+    className: 'container',
+    children: ['Hello World', 'Goodbye World'],
+  },
+);
+ReactDOM.render(element, rootElement);
+```
+
 ### JSX
 
-While you could create applications with just React.createElement, composition would
-not optimal. JSX provides "syntactic sugar" to help you compose React elements. Typically you would set up Babel and Webpack to transpile JSX into React elements.
+While you could create an application with just React elements, composition would
+not be optimal. JSX provides "syntactic sugar" to help you compose React elements. JSX is markup that will transpile into React elements.
 
 ```javascript
 const rootElement = document.getElementById("root");
@@ -44,7 +73,7 @@ JSX allows for interpolation of javascript with the use of curly braces: {}
 const rootElement = document.getElementById("root")
 const content = 'Hello World';
 const className = 'container';
-const element = <div className="{container}">{(() => content)()}</div>;
+const element = <div className={container}>{(() => content)()}</div>;
 ReactDOM.render(element, rootElement);
 ```
 
