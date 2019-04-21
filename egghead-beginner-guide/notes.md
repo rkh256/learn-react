@@ -1,8 +1,9 @@
 # React for Beginner Notes
 
-React Elements are just like DOM elements. They are created with the React.createElement Method.
+## Elements
+React Elements are similar to regular DOM elements. 
 
-The following javascript:
+### Hello World - Plain Javascript
 ```javascript
 const rootElement = document.getElementById("root");
 const element = document.createElement("div");
@@ -10,7 +11,9 @@ element.textContent = "Hello World";
 element.className = "containter";
 rootElement.appendChild(element);
 ```
-Can be written in react like so:
+
+### Hello World - React.createElement
+Hello world writting with React.createElement
 
 ```javascript
 const rootElement = document.getElementById("root");
@@ -22,15 +25,19 @@ const element = React.createElement(
 ReactDOM.render(element, rootElement);
 ```
 
+### JSX
+
 While you could create applications with just React.createElement, composition would
-not optimal, so JSX is introduced. JSX is markup in javscript to help you compose
-React Elements. Typically you would set up Babel and Webpack to use JSX.
+not optimal. JSX provides "syntactic sugar" to help you compose React elements. Typically you would set up Babel and Webpack to transpile JSX into React elements.
 
 ```javascript
 const rootElement = document.getElementById("root");
+// JSX looks like markup in your code
 const element = <div className="container">Hello World</div>;
 ReactDOM.render(element, rootElement);
 ```
+
+### JSX and Interpolation
 
 JSX allows for interpolation of javascript with the use of curly braces: {}
 ```javascript
@@ -41,7 +48,7 @@ const element = <div className="{container}">{(() => content)()}</div>;
 ReactDOM.render(element, rootElement);
 ```
 
-You can interpolate props onto an element using an object and the spread operator:
+### Interpolation of props using the spread operator
 
 ```javascript
 const rootElement = document.getElementById("root")
@@ -53,7 +60,9 @@ const element = <div {...props}></div>;
 ReactDOM.render(element, rootElement);
 ```
 
-The order of props on the element is important. The ordering can be used to overwrite or provide default values. This works exactly like Object.assign.
+## Ordering of props, and how its like Object.assign
+
+The order of props on the element is important. The ordering can be used to overwrite or provide default values. This works like Object.assign.
 
 In this example props.className will get overwritten with "ps-container"
 
