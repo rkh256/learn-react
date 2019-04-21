@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+
+    let Message = props => {
+      return (
+        <div>
+          {props.message ? (
+            <div>{props.message}</div>
+          ) : (
+            <div>no message was provided</div>
+          )}
+        </div>
+      );
+    };
+
+    let element = <Message message="hello" />;
+
+    ReactDOM.render(element, rootElement);
+  </script>
+</html>
