@@ -8,13 +8,11 @@
 
   <script type="text/babel">
     const rootElement = document.getElementById("root")
-    const content = 'Hello World';
-    const className = 'container';
     const props = {
       children: 'Hello World',
       className: 'container',
     }
-    const element = <div {...props}></div>;
+    const element = <div {...props} className='foobar'></div>;
     ReactDOM.render(element, rootElement);
   </script>
 </html>
