@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <div id="root"></div>
+
+  <script type="text/babel">
+      const rootElement = document.getElementById("root");
+
+    let tick = () => {
+      const time = new Date().toLocaleTimeString()
+      let element = <div>{time}</div>
+      ReactDOM.render(element, rootElement);
+    };
+
+    tick();
+    setInterval(tick, 1000);
+
+  </script>
+</html>
