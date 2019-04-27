@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+
+    const Box = ({className = '', ...rest}) => {
+      return(
+        <div className={`box-${className}`} {...rest}>
+          {rest.children}
+        </div>
+      )
+    };
+
+    const element = (
+      <div>
+        <div style={{paddingLeft: 50}}>
+          Box
+        </div>
+        <Box className='big__box'>
+          Hello Box
+        </Box>
+      </div>
+    );
+
+    ReactDOM.render(element, rootElement);
+  </script>
+</html>
