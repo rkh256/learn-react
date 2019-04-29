@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+
+    class FirstNameField extends React.Component {
+      state = {
+        firstName: '',
+        error: ''
+      };
+
+      handleChange = (event) => {
+        console.log('change', event.target.validity);
+        this.setState({
+          firstName: event.target.value,
+          error: this.validateField(event.target.value),
+        }, () => console.log(this.state));
+      };
+
+      validateField = (value) => {
+        console.log(this.state);
+        if (value.length < 3) {
+          return 'Must contain three characters.'
+        }
+        return '';
+      }
+
+      render() {
+        return(
+          <div>
+            <label>
+              First Name:
+              <input
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+                minLength="3"
+              />
+            </label>
+            {this.state.error}
+          </div>
+        )
+      }
+    }
+
+    class UserForm extends React.Component {
+
+      handleOnSubmit = (event) => {
+        event.preventDefault();
+        console.log({target: event.target.elements.firstName.value});
+      }
+
+      render() {
+        return(
+          <div>
+            <form onSubmit={this.handleOnSubmit}>
+              <FirstNameField />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        )
+      }
+    }
+
+    class App extends React.Component {
+      render() {
+        return(
+          <UserForm />
+        )
+      }
+    }
+    ReactDOM.render(<App />, rootElement);
+  </script>
+</html>

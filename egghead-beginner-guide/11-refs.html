@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+
+
+    class App extends React.Component {
+
+      componentDidMount = () => {
+        console.log('the ref', this.myNode);
+        this.myNode.innerHTML = 'test';
+        this.myNode.setAttribute('id', 'container')
+      };
+
+      render() {
+        return (
+          <div>
+            <div>
+              <div ref={node => this.myNode = node}>Hello World</div>
+            </div>
+          </div>
+        )
+      }
+    }
+
+
+    ReactDOM.render(<App />, rootElement);
+  </script>
+</html>
