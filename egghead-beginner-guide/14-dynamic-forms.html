@@ -16,15 +16,15 @@
       };
 
       handleChange = (event) => {
-        console.log('change', event.target.validity);
+        // Element validation attributes
+        // console.log('change', event.target.validity);
         this.setState({
           firstName: event.target.value,
           error: this.validateField(event.target.value),
-        }, () => console.log(this.state));
+        };
       };
 
       validateField = (value) => {
-        console.log(this.state);
         if (value.length < 3) {
           return 'Must contain three characters.'
         }
