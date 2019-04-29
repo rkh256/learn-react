@@ -12,7 +12,7 @@
     class FirstNameField extends React.Component {
       state = {
         firstName: '',
-        error: ''
+        error: '',
       };
 
       handleChange = (event) => {
@@ -21,7 +21,7 @@
         this.setState({
           firstName: event.target.value,
           error: this.validateField(event.target.value),
-        };
+        });
       };
 
       validateField = (value) => {
@@ -54,6 +54,7 @@
 
       handleOnSubmit = (event) => {
         event.preventDefault();
+        console.log('form', {target: event.target});
         console.log({target: event.target.elements.firstName.value});
       }
 
